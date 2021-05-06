@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1618850430 source:c:\users\danys\desktop\programming\практическая политех\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<windows.h>
+	<locale.h>
+
+1618861418 source:c:\users\Даниил\desktop\практическая политех\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<windows.h>
+	<locale.h>
+
+1620332105 source:c:\users\danys\desktop\Практическая 3 на функции\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<windows.h>
+	<locale.h>
+
