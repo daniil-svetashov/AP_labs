@@ -5,12 +5,28 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <windows.h>
 int main ()
 {
-
-    char ch;
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     FILE *fA,*fB,*fC;
+    char ch,text[100];
+    puts("Введіть дані для файлу A.txt");
+    gets(text);
+    fA=fopen("A.txt","w");
+    fprintf(fA,"%s",text);
+    fclose(fA);
+
+    puts("Введіть дані для файлу B.txt");
+    gets(text);
+    fB=fopen("B.txt","w");
+    fprintf(fB,"%s",text);
+    fclose(fB);
+
+
+
+
 
 ///////////////////////////////////////////////////////////////////////
 //В С записати всі прописні літери латинського алфавіту з А.
@@ -78,7 +94,7 @@ int main ()
           putchar(ch);
       }
 
-      printf("Text in file C: ");
+      printf("\nText in file C: ");
       fC=fopen("C.txt","r");
       while((ch=fgetc(fC))!=EOF)
       {
