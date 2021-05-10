@@ -18,7 +18,7 @@ struct tov
 
 char c;//для перехоплювання натисненої клавіши
 // прототипи функцій
-//int counter;
+
 void input(FILE *);//функція створення файлу
 void print(FILE *);//функція перегляду файлу
 void find(FILE *);//функція пошуку
@@ -55,7 +55,7 @@ int main()
 void input(FILE *tf)
 {
 
-    //counter=1;
+
     tf=fopen("file1.dat","wb");
     system("cls");
     printf("\nВведення інформації про різні видання:\n");
@@ -82,10 +82,6 @@ void print(FILE *tf)
     int i=1;//лічильник для зручного виводу
 
     //не використовуєм do while бо може трапитись, що юзер не ввів дані в файл,виводити буде нічого
-//    if(counter==0)
-//    {
-//        return 1;
-//    }
     fread(&t1,sizeof(t1),1,tf);
 
     while(!feof(tf))
@@ -97,7 +93,7 @@ void print(FILE *tf)
     }
     fclose(tf);
     getch();//пауза
-  //  return 0;
+
 }
 
 void find(FILE* tf)
@@ -123,5 +119,6 @@ void find(FILE* tf)
   fclose(tf);
   getch();
 }
+
 
 
