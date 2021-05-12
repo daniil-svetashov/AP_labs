@@ -233,3 +233,74 @@ void filecreate(int *ar,int N,FILE *fp)
 }
 
 
+//////////////////////////////////////////
+////задание 3
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+
+
+
+void generation(char  *ar ,int N);
+void output(char *ar,int N);
+void result(char *ar,int N);
+void filecreate(char *ar,int N,FILE *fp);
+FILE *fp;
+
+int main()
+{
+    srand(time(NULL));
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    printf("Введите число N");
+    int N;
+    scanf("%d",&N);
+    char ar[N];
+    generation(ar,N);
+    output(ar,N);
+    filecreate(ar,N,fp);
+
+
+
+
+
+return 0;
+
+}
+
+void generation(char  *ar ,int N)
+{
+    const int y=33,x=126;
+    for(int i=0;i<N;i++)
+    {
+     ar[i]=y+rand()%(x+1-y);
+    }
+}
+void output(char *ar,int N)
+{
+    printf("\n");
+    for(int i=0;i<N;i++)
+    {
+     printf("%c ",ar[i]);
+    }
+}
+
+void filecreate(char *ar,int N,FILE *fp)
+{
+
+    fp=fopen("result.txt","w");
+    if(fp==NULL)
+    {
+        printf("Создать файл не получилось,ошибка");
+        exit(1);
+    }
+
+    for(int i=0;i<N;i++)
+    {
+        fprintf(fp,"%c ",ar[i]);
+    }
+    fclose(fp);
+
+}
+
