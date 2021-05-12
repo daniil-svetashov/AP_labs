@@ -122,3 +122,114 @@ void filecreate(double *ar,int N,FILE *fp)
 
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
+//////Задание 2
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+
+
+
+void generation(int  *ar ,int N);
+void output(int *ar,int N);
+void result(int *ar,int N);
+void filecreate(int *ar,int N,FILE *fp);
+FILE *fp;
+
+int main()
+{
+    srand(time(NULL));
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    printf("Введите число N");
+    int N;
+    scanf("%d",&N);
+    int ar[N];
+    generation(ar,N);
+    output(ar,N);
+    result(ar,N);
+    output(ar,N);
+    filecreate(ar,N,fp);
+
+
+
+
+
+return 0;
+
+}
+
+
+void result(int *ar,int N)
+{
+
+   int ar2[N];
+   for(int i=0;i<N;i++)
+   {
+       ar2[i]=ar[i];
+   }
+
+    for(int i=0;i<N;i++)
+    {
+        if(ar2[i]%2==0)
+        {
+            for(int j=i;j<N;j++)
+            {
+                if(ar[j]%2==1)
+                {
+                    ar[i]+=ar2[j];
+                    break;
+                }
+            }
+
+        }
+
+    }
+
+
+    for(int i=0;i<N;i++)
+    {
+
+        if(ar2[i]%2==1)
+        {
+            ar[i]=ar2[i]*ar2[i];
+        }
+    }
+}
+
+void generation(int  *ar ,int N)
+{
+    const int y=0,x=10;
+    for(int i=0;i<N;i++)
+    {
+     ar[i]=y+rand()%(x+1-y);
+    }
+}
+void output(int *ar,int N)
+{
+    printf("\n");
+    for(int i=0;i<N;i++)
+    {
+     printf("%d ",ar[i]);
+    }
+}
+
+void filecreate(int *ar,int N,FILE *fp)
+{
+
+    fp=fopen("result.txt","w");
+    if(fp==NULL)
+    {
+        printf("Создать файл не получилось,ошибка");
+        exit(1);
+    }
+
+    for(int i=0;i<N;i++)
+    {
+        fprintf(fp,"%d ",ar[i]);
+    }
+    fclose(fp);
+
+}
+
+
