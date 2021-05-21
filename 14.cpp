@@ -1,3 +1,4 @@
+//степ 1.4.5.8.10
 #include <cstdlib>
 #include <iostream>
 #include <stdio.h>
